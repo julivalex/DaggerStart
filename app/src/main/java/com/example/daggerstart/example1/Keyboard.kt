@@ -1,4 +1,5 @@
 package com.example.daggerstart.example1
 
-class Keyboard {
-}
+import javax.inject.Inject
+
+class Keyboard @Inject constructor()

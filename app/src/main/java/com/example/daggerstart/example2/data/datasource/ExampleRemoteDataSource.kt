@@ -1,4 +1,4 @@
-package com.example.daggerstart.example2.data
+package com.example.daggerstart.example2.data.datasource
 
 interface ExampleRemoteDataSource {
 

@@ -1,6 +1,8 @@
 package com.example.daggerstart.example2.domain
 
-class ExampleUseCase(
+import javax.inject.Inject
+
+class ExampleUseCase @Inject constructor(
     private val repository: ExampleRepository
 ) {
 

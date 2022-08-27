@@ -7,6 +7,8 @@ class Activity {
     @Inject
     lateinit var keyboard: Keyboard
 
+    val mouse = DaggerNewComponent.create().getMouse()
+
     init {
         DaggerNewComponent.create().inject(this)
     }

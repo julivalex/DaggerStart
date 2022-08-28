@@ -8,16 +8,13 @@ import dagger.Component
 @Component(modules = [DataModule::class, DomainModule::class])
 interface ApplicationComponent {
 
-    @Component.Builder
-    interface ApplicationComponentBuilder {
+    @Component.Factory
+    interface ApplicationComponentFactory {
 
-        @BindsInstance
-        fun context(context: Context): ApplicationComponentBuilder
-
-        @BindsInstance
-        fun timeMillis(timeMillis: Long): ApplicationComponentBuilder
-
-        fun build(): ApplicationComponent
+        fun create(
+           @BindsInstance context: Context,
+           @BindsInstance timeMillis: Long
+        ): ApplicationComponent
     }
 
     fun inject(activity: MainActivity)

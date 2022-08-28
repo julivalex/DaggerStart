@@ -3,7 +3,9 @@ package com.example.daggerstart.example2.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.daggerstart.R
+import com.example.daggerstart.example2.di.ContextModule
 import com.example.daggerstart.example2.di.DaggerApplicationComponent
+import com.example.daggerstart.example2.di.DataModule
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +13,12 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModel: ExampleViewModel
 
-    private val component = DaggerApplicationComponent.create()
+    private val component by lazy {
+        DaggerApplicationComponent
+            .builder()
+            .contextModule(ContextModule(application))
+            .build()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         component.inject(this)

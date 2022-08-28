@@ -2,10 +2,10 @@ package com.example.daggerstart.example2.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.TimeUtils
 import com.example.daggerstart.R
-import com.example.daggerstart.example2.di.ContextModule
 import com.example.daggerstart.example2.di.DaggerApplicationComponent
-import com.example.daggerstart.example2.di.DataModule
+import java.sql.Time
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
     private val component by lazy {
         DaggerApplicationComponent
             .builder()
-            .contextModule(ContextModule(application))
+            .context(application)
+            .timeMillis(System.currentTimeMillis())
             .build()
     }
 

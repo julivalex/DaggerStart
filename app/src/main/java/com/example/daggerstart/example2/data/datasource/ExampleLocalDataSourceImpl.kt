@@ -1,6 +1,6 @@
 package com.example.daggerstart.example2.data.datasource
 
-import com.example.daggerstart.example2.data.database.ExampleDatabase
+import com.example.daggerstart.example2.data.datasource.database.ExampleDatabase
 import javax.inject.Inject
 
 class ExampleLocalDataSourceImpl @Inject constructor(

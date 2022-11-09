@@ -2,28 +2,26 @@ package com.example.daggerstart.example2.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.TimeUtils
+import android.util.Log
 import com.example.daggerstart.R
-import com.example.daggerstart.example2.di.DaggerApplicationComponent
-import java.sql.Time
-import javax.inject.Inject
+import com.example.daggerstart.example2.ExampleApp
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var viewModel: ExampleViewModel
-
     private val component by lazy {
-        DaggerApplicationComponent
-            .factory()
-            .create(application, System.currentTimeMillis())
-
+        (application as ExampleApp).component
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        component.inject(this)
+        //component.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel.method()
+        Log.d("MainActivity", "${component.getExampleViewModel()}")
+        Log.d("MainActivity", "${component.getExampleViewModel()}")
+        Log.d("MainActivity", "${component.getExampleDatabase()}")
+        Log.d("MainActivity", "${component.getExampleDatabase()}")
+        Log.d("MainActivity", "${component.getExampleApiService()}")
+        Log.d("MainActivity", "${component.getExampleApiService()}")
+        //viewModel.method()
     }
 }

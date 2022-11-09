@@ -17,4 +17,8 @@ class ExampleRepositoryImpl @Inject constructor(
         localDataSource.method()
         remoteDataSource.method()
     }
+
+    companion object {
+        private const val LOG_TAG = "EXAMPLE_TEST"
+    }
 }

@@ -22,11 +22,5 @@ interface ApplicationComponent {
         ): ApplicationComponent
     }
 
-    fun getExampleViewModel(): ExampleViewModel
-
-    fun getExampleDatabase(): ExampleDatabase
-
-    fun getExampleApiService(): ExampleApiService
-
     fun inject(activity: MainActivity)
 }

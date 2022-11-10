@@ -2,6 +2,8 @@ package com.example.daggerstart.example2.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.example.daggerstart.R
 import com.example.daggerstart.example2.ExampleApp
 import javax.inject.Inject
@@ -9,7 +11,13 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var viewModel: ExampleViewModel
+    lateinit var viewModelFactory: ViewModelFactory
+
+    //private val viewModel = ViewModelProvider(this, viewModelFactory)[ExampleViewModel::class.java]
+
+    private val viewModel: ExampleViewModel by viewModels { viewModelFactory }
+
+    private val viewModel2: ExampleViewModel2 by viewModels()
 
     private val component by lazy {
         (application as ExampleApp).component
@@ -20,5 +28,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         viewModel.method()
+        viewModel2.method()
     }
 }

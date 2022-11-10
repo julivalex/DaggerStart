@@ -2,16 +2,16 @@ package com.example.daggerstart.example2.presentation
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.daggerstart.example2.domain.ExampleUseCase
+import com.example.daggerstart.example2.domain.ExampleRepository
 import javax.inject.Inject
 
-class ExampleViewModel @Inject constructor(
-    private val useCase: ExampleUseCase
+class ExampleViewModel2 @Inject constructor(
+    private val repository: ExampleRepository
 ): ViewModel() {
 
     fun method() {
-        useCase()
-        Log.d(LOG_TAG, "ExampleViewModel: $this")
+        repository.method()
+        Log.d(LOG_TAG, "ExampleViewModel2: $this")
     }
 
     companion object {

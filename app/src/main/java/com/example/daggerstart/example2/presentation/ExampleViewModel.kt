@@ -11,7 +11,7 @@ class ExampleViewModel @Inject constructor(
 
     fun method() {
         useCase()
-        Log.d(LOG_TAG, "ExampleViewModel: $this ${ExampleViewModel2::class.java.simpleName}")
+        Log.d(LOG_TAG, "ExampleViewModel: $this")
     }
 
     companion object {

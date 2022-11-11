@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: ExampleViewModel by viewModels { viewModelFactory }
 
-    private val viewModel2: ExampleViewModel2 by viewModels()
+    private val viewModel2: ExampleViewModel2 by viewModels { viewModelFactory }
 
     private val component by lazy {
         (application as ExampleApp).component

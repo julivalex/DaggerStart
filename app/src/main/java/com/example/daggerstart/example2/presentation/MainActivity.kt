@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.example.daggerstart.R
 import com.example.daggerstart.example2.ExampleApp
+import com.example.daggerstart.example2.di.ActivityComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -15,14 +15,14 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    //private val viewModel = ViewModelProvider(this, viewModelFactory)[ExampleViewModel::class.java]
-
     private val viewModel: ExampleViewModel by viewModels { viewModelFactory }
 
     private val viewModel2: ExampleViewModel2 by viewModels { viewModelFactory }
 
-    private val component by lazy {
+    private val component: ActivityComponent by lazy {
         (application as ExampleApp).component
+            .activityComponentFactory()
+            .create("MY_ID_1")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

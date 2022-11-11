@@ -21,7 +21,7 @@ class MainActivity2 : AppCompatActivity() {
         (application as ExampleApp)
             .component
             .activityComponentFactory()
-            .create("MY_ID_2")
+            .create("MY_ID_2", "MY_NAME_2")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
